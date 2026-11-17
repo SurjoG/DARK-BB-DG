@@ -4,7 +4,6 @@ package com.darkgang.darkbbdg
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -17,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,14 +30,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun DarkGangScreen() {
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = Color(0xFF080808)
     ) {
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(24.dp),
+
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
