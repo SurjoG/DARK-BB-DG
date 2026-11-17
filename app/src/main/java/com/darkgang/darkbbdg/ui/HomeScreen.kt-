@@ -1,0 +1,128 @@
+
+package com.darkgang.darkbbdg.ui
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@Composable
+fun HomeScreen(
+    userName: String,
+    onOpenChat: () -> Unit,
+    onOpenCalls: () -> Unit,
+    onOpenProfile: () -> Unit,
+    onLogout: () -> Unit
+) {
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = Color(0xFF080808)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(22.dp)
+        ) {
+            Text(
+                text = "DARK-BB-D-G",
+                color = Color(0xFFFF1744),
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Text(
+                text = "THE BRAND OF DARK GANG",
+                color = Color.LightGray,
+                fontSize = 12.sp
+            )
+
+            Spacer(modifier = Modifier.height(35.dp))
+
+            Text(
+                text = "Welcome, $userName",
+                color = Color.White,
+                fontSize = 23.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = "Private Communication Platform",
+                color = Color.LightGray,
+                fontSize = 13.sp
+            )
+
+            Spacer(modifier = Modifier.height(35.dp))
+
+            HomeMenuButton("PRIVATE CHAT", onOpenChat)
+
+            Spacer(modifier = Modifier.height(15.dp))
+
+            HomeMenuButton("VOICE / VIDEO CALL", onOpenCalls)
+
+            Spacer(modifier = Modifier.height(15.dp))
+
+            HomeMenuButton("MY PROFILE", onOpenProfile)
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            OutlinedButton(
+                onClick = onLogout,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(52.dp),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Text(
+                    text = "LOG OUT",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "© DARK GANG",
+                    color = Color.Gray,
+                    fontSize = 11.sp
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun HomeMenuButton(
+    title: String,
+    onClick: () -> Unit
+) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(58.dp),
+        shape = RoundedCornerShape(12.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color(0xFFFF1744)
+        )
+    ) {
+        Text(
+            text = title,
+            color = Color.White,
+            fontWeight = FontWeight.Bold
+        )
+    }
+}
